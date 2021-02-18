@@ -3,7 +3,7 @@ const db = require('../../models')
 
 // WITH PROMISES
 router.get('/', (req, res) => {
-    db.Bounty.find()
+    db.Bounty.find().populate('hunters')
     .then(bounties => {
         res.status(200).send(bounties)
     })

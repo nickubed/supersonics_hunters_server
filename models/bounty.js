@@ -1,5 +1,6 @@
 // require mongoose
 const mongoose = require('mongoose')
+const hunter = require('./hunter')
 
 // Create a bounty schema
 const bountySchema = new mongoose.Schema({
@@ -22,12 +23,13 @@ const bountySchema = new mongoose.Schema({
         default: 10000
     },
     ship: String,
-    hunters: Array,
+    hunters: [{type: mongoose.Schema.Types.ObjectId, ref: 'Hunter'}],
     captured: {
         type: Boolean,
         default: false
     },
     lastSeen: String
 })
+
 
 module.exports = mongoose.model('Bounty', bountySchema)

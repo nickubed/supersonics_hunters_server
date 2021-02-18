@@ -12,6 +12,7 @@ app.use(cors()) // Allow requests from other origins
 
 // Include any pertinent controllers
 app.use('/v1/bounties', require('./controllers/v1/bounties'))
+app.use('/v1/hunters', require('./controllers/v1/hunters'))
 
 // Wildcard route to handle every invalid request!
 app.get('*', (req, res) => {
